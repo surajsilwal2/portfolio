@@ -18,7 +18,7 @@ const ProjectsSection = () => {
       description:
         "A comprehensive healthcare management platform built with modern web technologies, featuring patient registration, appointment scheduling, and administrative dashboard for healthcare facilities.",
       image:
-        "https://private-user-images.githubusercontent.com/172179399/478764255-d89ffa9a-66b9-4614-8953-638f2e960b87.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTU2ODQxNjQsIm5iZiI6MTc1NTY4Mzg2NCwicGF0aCI6Ii8xNzIxNzkzOTkvNDc4NzY0MjU1LWQ4OWZmYTlhLTY2YjktNDYxNC04OTUzLTYzOGYyZTk2MGI4Ny5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwODIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDgyMFQwOTU3NDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04OWM5ZDhiOWFlMzMxMDk4Yzg3YmEzOThiZjM4NmYyODYzZDZjN2NhNmNjZDRhNTNmZmE3MWM4YWMzYzUxYWM3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.4Ib99kFjhaPLKd6r7S5bAywOcHn2TfzcV-gsn5g0AUg",
+        "./carepulse.png",
       technologies: [
         "Next.js",
         "TypeScript",
