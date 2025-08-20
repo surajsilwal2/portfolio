@@ -125,7 +125,7 @@ const HeroSection = () => {
           >
             <div className="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-xl border-4 border-gray-800">
               <Image
-                src="/profile.png" // replace with your image path
+                src="/.profile.png" // replace with your image path
                 alt="Suraj Silwal"
                 width={384}
                 height={384}

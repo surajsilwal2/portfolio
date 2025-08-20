@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Suraj Silwal' }],
   viewport: 'width=device-width, initial-scale=1',
   icons: {
-    icon: '/profile.png', // your custom favicon
+    icon: '/.profile.png', // your custom favicon
   },
 };
 
