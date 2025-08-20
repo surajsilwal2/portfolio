@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   icons: {
     icon: './profile.png', // your custom favicon
   },
+  
 };
 
 export default function RootLayout({
