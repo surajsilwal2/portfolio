@@ -29,6 +29,24 @@ const ProjectsSection = () => {
       liveDemo: "https://care-pulse-five-bay.vercel.app/",
       github: "https://github.com/surajsilwal2/CarePulse",
     },
+    {
+      title: "Learning Management System",
+      description:
+        "This LMS platform allows instructors (admins) to create, manage, and sell online courses, while users can browse, enroll, and track their learning progress through a clean and responsive dashboard. Payments are securely handled via Stripe Checkout.",
+      image:
+        "./homePage.png",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Better Auth",
+        "shadcn/ui",
+        "Prisma ORM with Neon Database",
+        "Tailwind",
+        "Arcjet (protect from Bots)"
+      ],
+      liveDemo: "https://lms-0-0.vercel.app",
+      github: "https://github.com/surajsilwal2/LMS-0.0",
+    },
   ];
 
   const containerVariants = {

@@ -8,8 +8,8 @@ const ContactSection = () => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      detail: "surajsilwal3210@gmail.com",
-      link: "mailto:surajsilwal3210@gmail.com",
+      detail: "suraj.silwal.dev@gmail.com",
+      link: "mailto:suraj.silwal.dev@gmail.com",
     },
     {
       icon: <Phone className="h-6 w-6" />,

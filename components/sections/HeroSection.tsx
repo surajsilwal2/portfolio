@@ -98,7 +98,7 @@ const HeroSection = () => {
                   hover: "hover:shadow-blue-400/40",
                 },
                 {
-                  href: "mailto:surajsilwal3210@gmail.com",
+                  href: "mailto:suraj.silwal.dev@gmail.com",
                   icon: <Mail className="h-6 w-6" />,
                   hover: "hover:shadow-purple-400/40",
                 },

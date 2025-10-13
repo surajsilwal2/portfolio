@@ -51,7 +51,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
           >
             <Mail size={20} />
             <span className="text-sm md:text-base font-medium">
-              surajsilwal3210@gmail.com
+              suraj.silwal.dev@gmail.com
             </span>
           </a>
 
