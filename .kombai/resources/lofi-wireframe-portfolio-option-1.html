@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option 1: Split-Screen Modern Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .header {
+            background: #e0e0e0;
+            padding: 20px;
+            border-bottom: 2px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .description {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+            padding: 0 20px 20px;
+            border-bottom: 2px dashed #ccc;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 2px dashed #ccc;
+            position: relative;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
+        }
+        .badge {
+            position: absolute;
+            background: #4CAF50;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .badge.new {
+            background: #FF9800;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .box {
+            border: 2px solid #333;
+            padding: 20px;
+            background: #fafafa;
+            position: relative;
+            border-radius: 4px;
+        }
+        .wireframe-card {
+            border: 2px solid #666;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            position: relative;
+        }
+        .button {
+            border: 2px solid #333;
+            padding: 10px 20px;
+            background: #e0e0e0;
+            display: inline-block;
+            margin: 5px;
+            position: relative;
+        }
+        .image-placeholder {
+            border: 2px dashed #999;
+            background: #f0f0f0;
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            margin: 10px 0;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .tag {
+            border: 1px solid #666;
+            padding: 4px 8px;
+            background: #f5f5f5;
+            font-size: 12px;
+        }
+        .timeline-item {
+            border-left: 3px solid #333;
+            padding-left: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '●';
+            position: absolute;
+            left: -8px;
+            font-size: 16px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .stat-box {
+            border: 2px solid #333;
+            padding: 20px;
+            text-align: center;
+            background: #fafafa;
+        }
+        .pdf-viewer {
+            border: 2px dashed #666;
+            height: 400px;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="title">Option 1: Split-Screen Modern Portfolio</div>
+        </div>
+        
+        <div class="description">
+            A bold, contemporary design featuring split-screen layouts, interactive resume viewer with embedded PDF, and a visual skills showcase. Emphasizes modern aesthetics with smooth transitions between content sections.
+        </div>
+
+        <!-- Navigation -->
+        <!-- REUSABLE: Navigation from components/Navigation.tsx -->
+        <div class="section" style="padding: 15px 30px; background: #f5f5f5;">
+            <span class="badge" style="top: 15px; right: 30px;" title="components/Navigation.tsx">[REUSE] Navigation</span>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-weight: bold;">📧 suraj.silwal.dev@gmail.com</div>
+                <div style="display: flex; gap: 20px;">
+                    <span>[Home]</span>
+                    <span>[About]</span>
+                    <span>[Skills]</span>
+                    <span>[Projects]</span>
+                    <span>[Experience]</span>
+                    <span>[Resume]</span>
+                    <span>[Contact]</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section (Split Screen) -->
+        <!-- REUSABLE: HeroSection from components/sections/HeroSection.tsx (Modified) -->
+        <div class="section">
+            <span class="badge" style="top: 30px; right: 30px;" title="components/sections/HeroSection.tsx">[REUSE] HeroSection</span>
+            <div class="split-layout">
+                <div>
+                    <h1 style="font-size: 48px; margin-bottom: 20px;">Hi, I'm <span style="text-decoration: underline;">Suraj Silwal</span></h1>
+                    <h2 style="font-size: 32px; margin-bottom: 20px; color: #666;">Full Stack Web Developer</h2>
+                    <p style="margin-bottom: 20px; line-height: 1.6;">Passionate about creating exceptional web experiences with React, Next.js, and modern technologies. Specialized in building scalable applications.</p>
+                    <!-- REUSABLE: Button from components/ui/button.tsx -->
+                    <div>
+                        <span class="badge" style="position: relative; top: -2px; margin-right: 5px;" title="components/ui/button.tsx">[REUSE]</span>
+                        <div class="button">View Projects</div>
+                        <div class="button">Download Resume</div>
+                    </div>
+                    <div style="margin-top: 30px; display: flex; gap: 15px;">
+                        <div style="width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;">GH</div>
+                        <div style="width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;">LI</div>
+                        <div style="width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✉</div>
+                    </div>
+                </div>
+                <div>
+                    <!-- REUSABLE: Avatar from components/ui/avatar.tsx -->
+                    <span class="badge" style="position: relative; margin-bottom: 10px;" title="components/ui/avatar.tsx">[REUSE] Avatar</span>
+                    <div class="image-placeholder" style="height: 400px;">
+                        [Profile Image: 600x400]<br>
+                        Animated Background with Gradients
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me Section -->
+        <!-- NEW COMPONENT: AboutSection (to be created at components/sections/AboutSection.tsx) -->
+        <div class="section" style="background: #fafafa;">
+            <span class="badge new" style="top: 30px; right: 30px;" title="To be created at components/sections/AboutSection.tsx">[NEW] AboutSection</span>
+            <h2 class="section-title">About Me</h2>
+            <div class="split-layout">
+                <div>
+                    <p style="line-height: 1.8; margin-bottom: 15px;">
+                        I'm a passionate full-stack developer with expertise in modern web technologies. 
+                        My journey began with a curiosity about how websites work, and has evolved into 
+                        a career dedicated to building exceptional digital experiences.
+                    </p>
+                    <p style="line-height: 1.8;">
+                        With a strong foundation in both frontend and backend development, I create 
+                        scalable applications that solve real-world problems. I'm constantly learning 
+                        and staying updated with the latest industry trends.
+                    </p>
+                </div>
+                <div>
+                    <!-- NEW COMPONENT: QuickStats (to be created at components/QuickStats.tsx) -->
+                    <span class="badge new" style="position: relative; margin-bottom: 10px;" title="To be created at components/QuickStats.tsx">[NEW] QuickStats</span>
+                    <div class="grid-3">
+                        <div class="stat-box">
+                            <div style="font-size: 32px; font-weight: bold;">10+</div>
+                            <div>Projects</div>
+                        </div>
+                        <div class="stat-box">
+                            <div style="font-size: 32px; font-weight: bold;">2+</div>
+                            <div>Years Exp</div>
+                        </div>
+                        <div class="stat-box">
+                            <div style="font-size: 32px; font-weight: bold;">50+</div>
+                            <div>Commits</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <!-- NEW COMPONENT: SkillsSection (to be created at components/sections/SkillsSection.tsx) -->
+        <div class="section">
+            <span class="badge new" style="top: 30px; right: 30px;" title="To be created at components/sections/SkillsSection.tsx">[NEW] SkillsSection</span>
+            <h2 class="section-title">Skills & Technologies</h2>
+            
+            <!-- REUSABLE: Tabs from components/ui/tabs.tsx -->
+            <span class="badge" style="position: relative; margin-bottom: 15px;" title="components/ui/tabs.tsx">[REUSE] Tabs</span>
+            <div style="border: 2px solid #333; padding: 20px;">
+                <div style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #ccc; padding-bottom: 10px;">
+                    <div style="padding: 8px 16px; background: #333; color: white;">[Frontend]</div>
+                    <div style="padding: 8px 16px; background: #e0e0e0;">[Backend]</div>
+                    <div style="padding: 8px 16px; background: #e0e0e0;">[Tools & Others]</div>
+                </div>
+                
+                <!-- NEW COMPONENT: SkillCard (to be created at components/SkillCard.tsx) -->
+                <span class="badge new" style="position: relative; margin-bottom: 10px;" title="To be created at components/SkillCard.tsx">[NEW] SkillCard</span>
+                <div class="grid-3">
+                    <div class="wireframe-card">
+                        <div style="font-weight: bold; margin-bottom: 10px;">⚛️ React / Next.js</div>
+                        <!-- REUSABLE: Progress from components/ui/progress.tsx -->
+                        <span class="badge" style="position: relative; font-size: 10px;" title="components/ui/progress.tsx">[REUSE]</span>
+                        <div style="width: 100%; height: 8px; background: #e0e0e0; border: 1px solid #999; margin-top: 10px;">
+                            <div style="width: 90%; height: 100%; background: #333;"></div>
+                        </div>
+                        <div style="font-size: 11px; margin-top: 5px;">90% - Expert</div>
+                    </div>
+                    <div class="wireframe-card">
+                        <div style="font-weight: bold; margin-bottom: 10px;">📘 TypeScript</div>
+                        <div style="width: 100%; height: 8px; background: #e0e0e0; border: 1px solid #999; margin-top: 10px;">
+                            <div style="width: 85%; height: 100%; background: #333;"></div>
+                        </div>
+                        <div style="font-size: 11px; margin-top: 5px;">85% - Advanced</div>
+                    </div>
+                    <div class="wireframe-card">
+                        <div style="font-weight: bold; margin-bottom: 10px;">🎨 Tailwind CSS</div>
+                        <div style="width: 100%; height: 8px; background: #e0e0e0; border: 1px solid #999; margin-top: 10px;">
+                            <div style="width: 95%; height: 100%; background: #333;"></div>
+                        </div>
+                        <div style="font-size: 11px; margin-top: 5px;">95% - Expert</div>
+                    </div>
+                    <div class="wireframe-card">
+                        <div style="font-weight: bold; margin-bottom: 10px;">🔧 shadcn/ui</div>
+                        <div style="width: 100%; height: 8px; background: #e0e0e0; border: 1px solid #999; margin-top: 10px;">
+                            <div style="width: 88%; height: 100%; background: #333;"></div>
+                        </div>
+                        <div style="font-size: 11px; margin-top: 5px;">88% - Advanced</div>
+                    </div>
+                    <div class="wireframe-card">
+                        <div style="font-weight: bold; margin-bottom: 10px;">🎭 Framer Motion</div>
+                        <div style="width: 100%; height: 8px; background: #e0e0e0; border: 1px solid #999; margin-top: 10px;">
+                            <div style="width: 80%; height: 100%; background: #333;"></div>
+                        </div>
+                        <div style="font-size: 11px; margin-top: 5px;">80% - Proficient</div>
+                    </div>
+                    <div class="wireframe-card">
+                        <div style="font-weight: bold; margin-bottom: 10px;">🔥 Node.js</div>
+                        <div style="width: 100%; height: 8px; background: #e0e0e0; border: 1px solid #999; margin-top: 10px;">
+                            <div style="width: 75%; height: 100%; background: #333;"></div>
+                        </div>
+                        <div style="font-size: 11px; margin-top: 5px;">75% - Proficient</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <!-- REUSABLE: ProjectsSection from components/sections/ProjectsSection.tsx -->
+        <div class="section" style="background: #fafafa;">
+            <span class="badge" style="top: 30px; right: 30px;" title="components/sections/ProjectsSection.tsx">[REUSE] ProjectsSection</span>
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <!-- REUSABLE: Card from components/ui/card.tsx -->
+            <span class="badge" style="position: relative; margin-bottom: 15px;" title="components/ui/card.tsx">[REUSE] Card</span>
+            <div class="wireframe-card" style="margin-bottom: 20px;">
+                <div class="image-placeholder" style="height: 200px; margin-bottom: 15px;">
+                    [Project Screenshot: CarePulse - 800x400]
+                </div>
+                <h3 style="font-size: 20px; margin-bottom: 10px;">Patient Management System</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">
+                    A comprehensive healthcare management platform with patient registration, 
+                    appointment scheduling, and admin dashboard.
+                </p>
+                <!-- REUSABLE: Badge from components/ui/badge.tsx -->
+                <span class="badge" style="position: relative; margin-bottom: 10px;" title="components/ui/badge.tsx">[REUSE] Badge</span>
+                <div class="tag-list">
+                    <div class="tag">Next.js</div>
+                    <div class="tag">TypeScript</div>
+                    <div class="tag">shadcn/ui</div>
+                    <div class="tag">Appwrite</div>
+                    <div class="tag">Tailwind</div>
+                </div>
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                    <div class="button">🔗 Live Demo</div>
+                    <div class="button">📂 GitHub</div>
+                </div>
+            </div>
+
+            <div class="wireframe-card">
+                <div class="image-placeholder" style="height: 200px; margin-bottom: 15px;">
+                    [Project Screenshot: LMS - 800x400]
+                </div>
+                <h3 style="font-size: 20px; margin-bottom: 10px;">Learning Management System</h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">
+                    Platform for instructors to create and sell courses with secure Stripe payments 
+                    and student progress tracking.
+                </p>
+                <div class="tag-list">
+                    <div class="tag">Next.js</div>
+                    <div class="tag">Better Auth</div>
+                    <div class="tag">Prisma</div>
+                    <div class="tag">Stripe</div>
+                </div>
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                    <div class="button">🔗 Live Demo</div>
+                    <div class="button">📂 GitHub</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Experience Timeline -->
+        <!-- NEW COMPONENT: ExperienceSection (to be created at components/sections/ExperienceSection.tsx) -->
+        <div class="section">
+            <span class="badge new" style="top: 30px; right: 30px;" title="To be created at components/sections/ExperienceSection.tsx">[NEW] ExperienceSection</span>
+            <h2 class="section-title">Work Experience</h2>
+            
+            <!-- NEW COMPONENT: TimelineItem (to be created at components/TimelineItem.tsx) -->
+            <span class="badge new" style="position: relative; margin-bottom: 15px;" title="To be created at components/TimelineItem.tsx">[NEW] TimelineItem</span>
+            <div class="timeline-item">
+                <div style="font-weight: bold; font-size: 18px;">Full Stack Developer</div>
+                <div style="color: #666; margin: 5px 0;">Company Name • 2023 - Present</div>
+                <p style="margin-top: 10px; line-height: 1.6;">
+                    • Developed and maintained multiple web applications using Next.js and React<br>
+                    • Implemented secure authentication systems with Better Auth<br>
+                    • Built responsive UIs with Tailwind CSS and shadcn/ui components<br>
+                    • Integrated payment systems using Stripe
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div style="font-weight: bold; font-size: 18px;">Frontend Developer</div>
+                <div style="color: #666; margin: 5px 0;">Previous Company • 2022 - 2023</div>
+                <p style="margin-top: 10px; line-height: 1.6;">
+                    • Created reusable component libraries with shadcn/ui<br>
+                    • Optimized application performance and loading times<br>
+                    • Collaborated with design team to implement pixel-perfect UIs
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div style="font-weight: bold; font-size: 18px;">Junior Developer</div>
+                <div style="color: #666; margin: 5px 0;">Startup • 2021 - 2022</div>
+                <p style="margin-top: 10px; line-height: 1.6;">
+                    • Assisted in developing web applications using React<br>
+                    • Learned modern web development practices and tools<br>
+                    • Participated in code reviews and team meetings
+                </p>
+            </div>
+        </div>
+
+        <!-- Resume Section -->
+        <!-- NEW COMPONENT: ResumeSection (to be created at components/sections/ResumeSection.tsx) -->
+        <div class="section" style="background: #fafafa;">
+            <span class="badge new" style="top: 30px; right: 30px;" title="To be created at components/sections/ResumeSection.tsx">[NEW] ResumeSection</span>
+            <h2 class="section-title">Resume</h2>
+            
+            <div class="split-layout">
+                <div>
+                    <!-- NEW COMPONENT: PDFViewer (to be created at components/PDFViewer.tsx) -->
+                    <span class="badge new" style="position: relative; margin-bottom: 10px;" title="To be created at components/PDFViewer.tsx">[NEW] PDFViewer</span>
+                    <div class="pdf-viewer">
+                        [Embedded PDF Viewer]<br>
+                        Interactive resume preview with zoom controls
+                    </div>
+                    <div style="margin-top: 15px; text-align: center;">
+                        <div class="button">⬇️ Download PDF Resume</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <!-- REUSABLE: Accordion from components/ui/accordion.tsx -->
+                    <span class="badge" style="position: relative; margin-bottom: 10px;" title="components/ui/accordion.tsx">[REUSE] Accordion</span>
+                    <div style="border: 2px solid #333;">
+                        <div style="padding: 15px; border-bottom: 2px solid #333; background: #f0f0f0; font-weight: bold; cursor: pointer;">
+                            📚 Education ▼
+                        </div>
+                        <div style="padding: 15px;">
+                            <div style="font-weight: bold;">Bachelor's in Computer Science</div>
+                            <div style="color: #666;">University Name • 2018 - 2022</div>
+                            <p style="margin-top: 10px;">Relevant coursework: Web Development, Database Systems, Software Engineering</p>
+                        </div>
+                    </div>
+                    
+                    <div style="border: 2px solid #333; margin-top: 15px;">
+                        <div style="padding: 15px; border-bottom: 2px solid #333; background: #f0f0f0; font-weight: bold; cursor: pointer;">
+                            🏆 Certifications ▼
+                        </div>
+                        <div style="padding: 15px;">
+                            • AWS Certified Developer<br>
+                            • React Advanced Patterns<br>
+                            • Next.js Masterclass
+                        </div>
+                    </div>
+
+                    <div style="border: 2px solid #333; margin-top: 15px;">
+                        <div style="padding: 15px; background: #f0f0f0; font-weight: bold; cursor: pointer;">
+                            🌟 Achievements ▼
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <!-- NEW COMPONENT: TestimonialsSection (to be created at components/sections/TestimonialsSection.tsx) -->
+        <div class="section">
+            <span class="badge new" style="top: 30px; right: 30px;" title="To be created at components/sections/TestimonialsSection.tsx">[NEW] TestimonialsSection</span>
+            <h2 class="section-title">Testimonials</h2>
+            
+            <!-- REUSABLE: Carousel from components/ui/carousel.tsx -->
+            <span class="badge" style="position: relative; margin-bottom: 15px;" title="components/ui/carousel.tsx">[REUSE] Carousel</span>
+            <div style="border: 2px solid #333; padding: 30px; background: #fafafa; position: relative;">
+                <div style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 24px;">◀</div>
+                <div style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 24px;">▶</div>
+                
+                <!-- NEW COMPONENT: TestimonialCard (to be created at components/TestimonialCard.tsx) -->
+                <span class="badge new" style="position: relative; margin-bottom: 10px;" title="To be created at components/TestimonialCard.tsx">[NEW] TestimonialCard</span>
+                <div style="text-align: center; padding: 0 60px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;">"</div>
+                    <p style="font-style: italic; font-size: 16px; line-height: 1.8; margin-bottom: 20px;">
+                        Suraj is an exceptional developer who consistently delivers high-quality work. 
+                        His attention to detail and problem-solving skills are outstanding.
+                    </p>
+                    <div style="margin-top: 20px;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; border: 2px solid #333; margin: 0 auto 10px; background: #e0e0e0; display: flex; align-items: center; justify-content: center;">👤</div>
+                        <div style="font-weight: bold;">John Doe</div>
+                        <div style="color: #666; font-size: 14px;">CEO, Tech Company</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 15px; display: flex; justify-content: center; gap: 10px;">
+                <div style="width: 12px; height: 12px; border-radius: 50%; background: #333;"></div>
+                <div style="width: 12px; height: 12px; border-radius: 50%; background: #ccc;"></div>
+                <div style="width: 12px; height: 12px; border-radius: 50%; background: #ccc;"></div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <!-- REUSABLE: ContactSection from components/sections/ContactSection.tsx -->
+        <div class="section" style="background: #fafafa;">
+            <span class="badge" style="top: 30px; right: 30px;" title="components/sections/ContactSection.tsx">[REUSE] ContactSection</span>
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="split-layout">
+                <div>
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-weight: bold; margin-bottom: 5px;">📧 Email</div>
+                        <div>suraj.silwal.dev@gmail.com</div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-weight: bold; margin-bottom: 5px;">📱 Phone</div>
+                        <div>+977 9746299831</div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-weight: bold; margin-bottom: 5px;">📍 Location</div>
+                        <div>Hetauda, Nepal</div>
+                    </div>
+                    <div style="margin-top: 30px; display: flex; gap: 15px;">
+                        <div style="width: 50px; height: 50px; border: 2px solid #333; display: flex; align-items: center; justify-content: center;">GH</div>
+                        <div style="width: 50px; height: 50px; border: 2px solid #333; display: flex; align-items: center; justify-content: center;">LI</div>
+                        <div style="width: 50px; height: 50px; border: 2px solid #333; display: flex; align-items: center; justify-content: center;">TW</div>
+                    </div>
+                </div>
+                <div>
+                    <!-- REUSABLE: Form components from components/ui/form.tsx -->
+                    <span class="badge" style="position: relative; margin-bottom: 10px;" title="components/ui/form.tsx, input.tsx, textarea.tsx">[REUSE] Form</span>
+                    <div style="border: 2px solid #333; padding: 20px;">
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Name</label>
+                            <input type="text" style="width: 100%; padding: 8px; border: 2px solid #999;" placeholder="Your name">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Email</label>
+                            <input type="email" style="width: 100%; padding: 8px; border: 2px solid #999;" placeholder="your@email.com">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Message</label>
+                            <textarea style="width: 100%; padding: 8px; border: 2px solid #999; height: 120px;" placeholder="Your message..."></textarea>
+                        </div>
+                        <div class="button" style="width: 100%; text-align: center;">Send Message</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="padding: 30px; text-align: center; background: #e0e0e0; border-top: 2px solid #333;">
+            <div style="font-weight: bold; margin-bottom: 10px;">© 2024 Suraj Silwal. All rights reserved.</div>
+            <div style="color: #666; font-size: 14px;">Built with Next.js • TypeScript • shadcn/ui • Tailwind CSS</div>
+        </div>
+    </div>
+</body>
+</html>
