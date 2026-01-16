@@ -52,7 +52,8 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-400 mb-10 max-w-xl leading-relaxed"
             >
-              I create digital experiences that are not only functional but intuitive and engaging. I enjoy tackling complex problems and transforming them into elegant, scalable solutions that users love.
+              A passionate BSc.CSIT student (7th semester) building modern web applications. 
+              I love turning ideas into reality through clean code and scalable solutions.
             </motion.p>
 
             <motion.div
