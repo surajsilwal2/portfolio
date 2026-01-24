@@ -176,7 +176,7 @@ const ResumeSection = () => {
                   </a>
                 </Button>
                 <p className="text-xs text-gray-700 mt-4">
-                  PDF format • Last updated: January 2024
+                  PDF format • Last updated: January 2026
                 </p>
               </CardContent>
             </Card>
